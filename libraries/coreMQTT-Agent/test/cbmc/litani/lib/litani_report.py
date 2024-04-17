@@ -311,7 +311,7 @@ def render(run, report_dir):
     render_artifact_indexes(artifact_dir)
 
     template_dir = pathlib.Path(__file__).parent.parent / "templates"
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader(str(template_dir)))
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(str(template_dir)), autoescape=True)
 
     svgs = render_runtimes(run, env, temporary_report_dir)
 
@@ -354,7 +354,7 @@ def render_artifact_indexes(artifact_dir):
                 yield pathlib.Path(root), dirs, fyles
 
     template_dir = pathlib.Path(__file__).parent.parent / "templates"
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader(str(template_dir)))
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(str(template_dir)), autoescape=True)
     index_templ = env.get_template("file-list.jinja.html")
     for dyr, dirs, files in dirs_needing_indexes():
         page = index_templ.render(
