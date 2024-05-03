@@ -84,7 +84,7 @@ class TestGpioAssisted(test_template):
         self.run_shell_script(" ".join([self.shell_script, self._ip, self._login, self._pwd, '-w', '0']))
 
         fp = open(self.rpi_output_file)
-        line = fp.readline()
+        line = fp.readline(5_000_000)
         line = line.strip()
 
         fp.close()
@@ -112,7 +112,7 @@ class TestGpioAssisted(test_template):
         self.run_shell_script(" ".join([self.shell_script, self._ip, self._login, self._pwd, '-w', '1']))
 
         fp = open(self.rpi_output_file)
-        line = fp.readline()
+        line = fp.readline(5_000_000)
         line = line.strip()
 
         fp.close()
@@ -142,7 +142,7 @@ class TestGpioAssisted(test_template):
         self.run_shell_script(" ".join([self.shell_script, self._ip, self._login, self._pwd, '-w', '1']))
 
         fp = open(self.rpi_output_file)
-        line = fp.readline()
+        line = fp.readline(5_000_000)
         line = line.strip()
 
         fp.close()
@@ -170,7 +170,7 @@ class TestGpioAssisted(test_template):
         self.run_shell_script(" ".join([self.shell_script, self._ip, self._login, self._pwd, '-w', '1']))
 
         fp = open(self.rpi_output_file)
-        line = fp.readline()
+        line = fp.readline(5_000_000)
         line = line.strip()
 
         fp.close()

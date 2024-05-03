@@ -211,7 +211,7 @@ class ShebangIssueTracker(FileIssueTracker):
     def check_file_for_issue(self, filepath):
         is_executable = os.access(filepath, os.X_OK)
         with open(filepath, "rb") as f:
-            first_line = f.readline()
+            first_line = f.readline(5_000_000)
         if first_line.startswith(b'#!'):
             if not is_executable:
                 # Shebang on a non-executable file

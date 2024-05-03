@@ -91,7 +91,7 @@ class TestTsensorAssisted(test_template):
             # Get reference temperature.
             self.run_shell_script(" ".join([self.shell_script, self._ip, self._login, self._pwd]))
             fp = open(self.rpi_output_file)
-            line = fp.readline()
+            line = fp.readline(5_000_000)
             fp.close()
 
             try:
